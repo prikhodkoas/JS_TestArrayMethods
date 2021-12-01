@@ -168,6 +168,48 @@ let people = [
 // const total = people.reduce((res, p) => res + p.budget, 0)
 // console.log(total);
 
+//// 2.1. Считаем средний возраст людей (сначала через for)
+// let average = 0;
+// for(let i = 0; i < people.length; i++){
+//     average += people[i].age;
+// }
+// average = Math.round(average / people.length);
+// console.log(average);
+
+//// 2.2. Теперь используем в вычислениях reduce
+// const average = Math.round(people.reduce((age, person) => age + person.age, 0) / people.length);
+// console.log(average);
+
+//// 2.3. Укоротим совсем немножко (только имена переменных)
+// const average = Math.round(people.reduce((res, p) => res + p.age, 0) / people.length);
+// console.log(average);
+
+//#############################################################
+
+//########
+// find
+//########
+//#############################################################
+// Ищем человека с возрастом больше 5 и менише 20 лет
+//#############################################################
+
+//// 1.1. Сразу ищем с помощью find
+// const person = people.find(p => p.age > 5 && p.age < 20);
+// console.log(person);
+
+//#############################################################
+
+//########
+// findIndex
+//########
+//#############################################################
+// Ищем индекс в массиве человека с возрастом больше 5 и менише 20 лет
+//#############################################################
+
+//// 1.1. Сразу ищем с помощью findIndex
+const person = people.findIndex(p => p.age > 5 && p.age < 20);
+console.log(person);
+
 //#############################################################
 
 console.log('stop');
