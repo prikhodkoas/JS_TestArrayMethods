@@ -89,8 +89,84 @@ let people = [
 // console.log(namesPeople);
 
 //// 2.2. Тоже самое, но совсем коротко
-const namesPeople = people.map(p => p.name);
-console.log(namesPeople);
+// const namesPeople = people.map(p => p.name);
+// console.log(namesPeople);
+
+//// 3.1. Делаем новый массив с именем и возрастом людей (без бюджета)
+// const newPeople = people.map((elem, ind, arr) => {
+//     return {name: elem.name, age: elem.age}
+// });
+// console.log(newPeople);
+
+//// 3.2. Тоже самое, но совсем коротко
+//// Доп. скобки нужно ставить что бы фигурные скобки объекта
+//// не принимались за тело функции
+// const newPeople = people.map(p => ({name: p.name, age: p.age}));
+// console.log(newPeople);
+
+//#############################################################
+
+//########
+// filter
+//########
+//#############################################################
+// Делаем выборку отдельных элементов массива в новый массив
+//#############################################################
+
+//// 1.1. Отбираем в новый массив, людей старше 18 лет сначала for
+// const newPeople = [];
+// for(let i = 0; i < people.length; i++){
+//     if(people[i].age > 18){
+//         newPeople.push(people[i]);
+//     }
+// }
+// console.log(newPeople);
+
+//// 1.2. Теперь тоже самое с помощью filter
+// const newPeople = people.filter((elem, ind, arr) => {
+//     if(elem.age > 18){
+//         return true;
+//     }
+// });
+// console.log(newPeople);
+
+//// 1.2. Теперь сокращаем. (убираем не используемые параметры)
+//// и учитывая, что возвращать нужно bool, то убираем if
+// const newPeople = people.filter(elem => elem.age > 18);
+// console.log(newPeople);
+
+//// 1.3. Тоже самое, но совсем коротко
+// const newPeople = people.filter(p => p.age > 18);
+// console.log(newPeople);
+
+//#############################################################
+
+//########
+// reduce
+//########
+//#############################################################
+// Считаем общую сумму бюджета у всех людей
+//#############################################################
+
+//// 1.1. Сначала через for
+// let total = 0;
+// for(let i = 0; i < people.length; i++)
+// {
+//     total += people[i].budget;
+// }
+// console.log(total);
+
+//// 1.2. Теперь с помощью reduce
+//// reduce принимает два параметра 1-функция, 2-начальное значение
+//// в функции два параметра 1-callBack переменная 2-переменная текущей итерации
+// const total = people.reduce((res, element) => {
+//     return res + element.budget;
+// }, 0);
+// console.log(total);
+
+//// 1.3. Теперь сокращаем
+// const total = people.reduce((res, p) => res + p.budget, 0)
+// console.log(total);
 
 //#############################################################
 
